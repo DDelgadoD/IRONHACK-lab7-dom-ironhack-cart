@@ -47,8 +47,9 @@ function createProduct() {
   const datos = document.querySelectorAll('.create-product input');
   const tbody = document.querySelector('#cart tbody')
   
+  row = tbody.insertRow(-1);
+  row.classList.add("product")
   let prod = `
-        <tr class="product">
           <td class="name">
             <span>${datos[0].value}</span>
           </td>
@@ -59,10 +60,9 @@ function createProduct() {
           <td class="subtotal">$<span>0</span></td>
           <td class="action">
             <button class="btn btn-remove">Remove</button>
-          </td>
-        </tr> `
-
-  tbody.innerHTML += prod;
+          </td> `
+  console.log(tbody.innerHTML)
+  row.innerHTML += prod;
   document.querySelectorAll('.btn-remove').forEach(item => item.addEventListener('click', removeProduct));
   datos.forEach(item => item.value = "")
 
